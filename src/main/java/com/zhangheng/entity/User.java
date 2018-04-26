@@ -4,6 +4,7 @@ import com.zhangheng.common.BaseEntity;
 
 /**
  * user 实体类
+ * 
  * @author zhangh
  * @date 2018年4月26日上午9:15:47
  */

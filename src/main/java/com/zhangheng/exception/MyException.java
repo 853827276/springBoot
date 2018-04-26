@@ -12,7 +12,7 @@ public class MyException extends RuntimeException {
 
 	public MyException(ResultEnum resultEnum) {
 		super(resultEnum.getMsg());
-		this.code=resultEnum.getCode();
+		this.code = resultEnum.getCode();
 	}
 
 	public Integer getCode() {
@@ -22,5 +22,5 @@ public class MyException extends RuntimeException {
 	public void setCode(Integer code) {
 		this.code = code;
 	}
-	
+
 }

@@ -8,10 +8,11 @@ import java.lang.annotation.Target;
 
 /**
  * 校验参数
+ * 
  * @author zhangh
  * @date 2018年4月26日上午9:37:58
  */
-@Target({ElementType.PARAMETER,ElementType.METHOD})
+@Target({ ElementType.PARAMETER, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface CheckParam {

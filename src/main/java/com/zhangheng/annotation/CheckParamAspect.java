@@ -11,7 +11,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
 import com.zhangheng.common.ResultEnum;
 import com.zhangheng.exception.MyException;
 import com.zhangheng.util.AnnotationUtil;
@@ -60,8 +59,8 @@ public class CheckParamAspect {
 		if (hasAuthor && !params[0].toString().equals("-1")) {// 模拟校验参数
 			return proceedingJoinPoint.proceed();
 		} else {
-			logger.info("很抱歉  方法" + AnnotationUtil.getClassName(proceedingJoinPoint)
-					+"."+AnnotationUtil.getMethodName(proceedingJoinPoint) + "参数校验失败");
+			logger.info("很抱歉  方法" + AnnotationUtil.getClassName(proceedingJoinPoint) + "."
+					+ AnnotationUtil.getMethodName(proceedingJoinPoint) + "参数校验失败");
 			throw new MyException(ResultEnum.PARAM_ERROR);
 		}
 	}

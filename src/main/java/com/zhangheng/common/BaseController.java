@@ -1,14 +1,12 @@
 package com.zhangheng.common;
 
 import javax.annotation.Resource;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.zhangheng.annotation.CheckParam;
 import com.zhangheng.util.ResultUtil;
 
@@ -34,7 +32,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	 */
 	@CheckParam
 	@RequestMapping("/findById/{id}")
-	public ResultInfo<Object> findById(@PathVariable("id") Id id){
+	public ResultInfo<Object> findById(@PathVariable("id") Id id) {
 		return ResultUtil.success(commonService.findById(id));
 	}
 
