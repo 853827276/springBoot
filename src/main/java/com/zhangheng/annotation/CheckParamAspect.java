@@ -1,7 +1,5 @@
 package com.zhangheng.annotation;
 
-import java.lang.reflect.Method;
-
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -44,9 +42,7 @@ public class CheckParamAspect {
 	@Before("pointCut()")
 	public void defore(JoinPoint joinPoint) {
 		MethodSignature sign = (MethodSignature) joinPoint.getSignature();
-		Method method = sign.getMethod();
-		CheckParam annotation = method.getAnnotation(CheckParam.class);
-		System.out.print("打印：" + annotation.value() + " 前置日志");
+		System.out.println("打印：" + sign.getDeclaringTypeName() + " 前置日志");
 	}
 
 	/**
