@@ -9,6 +9,7 @@ public enum ResultEnum {
 	SUCCESS(1,"成功"),
 	PARAM_ERROR(-1,"参数异常"),
 	AUTHORIZATION_ERROR(-2,"对不起，您的权限不够"),
+	DADABASE_ERROR(-3,"数据库操作数据异常，有可能是主键冲突，索引唯一"),
 	UNKONW_ERROR(-99,"未知错误"),
 	;
 	private Integer code;
