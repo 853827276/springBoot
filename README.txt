@@ -10,3 +10,13 @@
 7.加入了自定义Aop功能，比如一些日志或者是权限验证，参数验证等均可实现。
 8.日志打印设置：目前仅打印启动日志和sql 如不满足个人爱好请自行设置
 9.封装了统一异常处理，service实现层的异常不需要捕获 全部抛到controller即可
+
+
+
+
+本例中的数据库脚本：
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) 
