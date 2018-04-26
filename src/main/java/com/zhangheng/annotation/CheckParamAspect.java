@@ -65,7 +65,7 @@ public class CheckParamAspect {
 			return proceedingJoinPoint.proceed();
 		} else {
 			logger.info("很抱歉  方法" + AnnotationUtil.getClassName(proceedingJoinPoint)
-					+ AnnotationUtil.getMethodName(proceedingJoinPoint) + "参数校验失败");
+					+"."+AnnotationUtil.getMethodName(proceedingJoinPoint) + "参数校验失败");
 			throw new MyException(ResultEnum.PARAM_ERROR);
 		}
 	}
