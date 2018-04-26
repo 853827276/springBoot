@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhangheng.dao.UserDao">
+
+	<select id="findById" parameterType="java.lang.Integer"
+		resultType="user">
+		select * from user where id = #{id}
+	</select>
+	<insert id="add" keyProperty="domain.id" useGeneratedKeys="true">
+		insert into
+		user (phone) values (#{domain.phone})
+	</insert>
+
+	<sql id="condition">
+		<if test="domain !=null">
+			<if test="domain.id !=null">
+				and id=#{domain.id}
+			</if>
+			<if test="domain.phone !=null and domain.phone !='' ">
+				and phone =#{domain.phone}
+			</if>
+		</if>
+		order by id desc
+	</sql>
+	<select id="findList" resultType="user" parameterType="user">
+		select * from user where 1=1
+		<include refid="condition" />
+	</select>
+
+	<delete id="deleteById" parameterType="Integer">
+		delete from user where id
+		= #{id}
+	</delete>
+
+	<update id="update" parameterType="user">
+		update user
+		<set>
+			<if test="domain !=null">
+				<if test="domain.phone !=null and domain.phone !=''">
+					phone=#{domain.phone}
+				</if>
+			</if>
+		</set>
+		<where>
+			id=#{id}
+		</where>
+	</update>
+</mapper>
