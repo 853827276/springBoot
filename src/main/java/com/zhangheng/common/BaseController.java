@@ -33,7 +33,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@CheckParam
 	@RequestMapping("/findById/{id}")
 	public ResultInfo<Object> findById(@PathVariable("id") Id id) {
-		return ResultUtil.success(commonService.findById(id));
+		return ResultUtil.success(ResultEnum.SUCCESS,commonService.findById(id));
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@ResponseBody
 	public ResultInfo<Object> add(@RequestBody Domain domain) {
 		commonService.add(domain);
-		return ResultUtil.success(domain);
+		return ResultUtil.success(ResultEnum.SUCCESS,domain);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@PostMapping("/findListPage/{pageNum}/{pageSize}")
 	public ResultInfo<Object> pageListPage(@PathVariable Integer pageNum, @PathVariable Integer pageSize,
 			@RequestBody(required = false) Domain condition) {
-		return ResultUtil.success(commonService.pageList(pageNum, pageSize, condition == null ? null : condition));
+		return ResultUtil.success(ResultEnum.SUCCESS,commonService.pageList(pageNum, pageSize, condition == null ? null : condition));
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	 */
 	@PostMapping("/findList")
 	public ResultInfo<Object> findList(@RequestBody(required = false) Domain condition) {
-		return ResultUtil.success(commonService.findList(condition));
+		return ResultUtil.success(ResultEnum.SUCCESS,commonService.findList(condition));
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@GetMapping("/deleteById/{id}")
 	public ResultInfo<Object> deleteById(@PathVariable Integer id) {
 		commonService.deleteById(id);
-		return ResultUtil.success();
+		return ResultUtil.success(ResultEnum.SUCCESS);
 	}
 
 	/**
@@ -97,6 +97,6 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@PostMapping("/update/{id}")
 	public ResultInfo<Object> update(@PathVariable Integer id, @RequestBody Domain condition) {
 		commonService.update(id, condition);
-		return ResultUtil.success();
+		return ResultUtil.success(ResultEnum.SUCCESS);
 	}
 }
