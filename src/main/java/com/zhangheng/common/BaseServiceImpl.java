@@ -27,6 +27,7 @@ public class BaseServiceImpl implements BaseService<BaseEntity> {
 	@Transactional
 	public void add(BaseEntity t) {
 		baseDao.add(t);
+		//int a  = 1/0;//测试事物的回滚性 经测试发现事物会回滚
 	}
 
 	@Override
