@@ -1,21 +1,24 @@
+# 服务器的端口和contextPath的配置
+server:
+ port: 1111
+ contextPath: /springboot
+ 
 spring:
- datasource:
+ datasource:  # 数据库的配置
   url: jdbc:mysql://localhost:3306/mytest
   username: root
   password: 111111
   driver-class-name: com.mysql.jdbc.Driver
- devtools:
+ devtools: # 热部署机制 需要依赖一个jar
   restart:
    enabled: true
 
-server:
- port: 1111
- contextPath: /springboot
-
+# MyBatis 的配置
 mybatis:
  typeAliasesPackage: com.zhangheng.entity
  mapperLocations: classpath:mapper/*.xml
 
+# 日志管理
 logging:
  level:
   com:
