@@ -9,9 +9,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
 import com.zhangheng.common.ResultEnum;
 import com.zhangheng.exception.MyException;
 import com.zhangheng.util.AnnotationUtil;
@@ -24,7 +24,7 @@ import com.zhangheng.util.AnnotationUtil;
  */
 @Aspect
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(1)
 public class CheckParamAspect {
 
 	private static Logger logger = Logger.getLogger(CheckParamAspect.class);
