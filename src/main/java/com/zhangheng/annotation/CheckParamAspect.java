@@ -39,9 +39,9 @@ public class CheckParamAspect {
 	 * @param joinPoint
 	 */
 	@Before("pointCut()")
-	public void defore(JoinPoint joinPoint) {
+	public void before(JoinPoint joinPoint) {
 		MethodSignature sign = (MethodSignature) joinPoint.getSignature();
-		System.out.println("打印：" + sign.getDeclaringTypeName() + " 前置日志");
+		logger.info("打印：" + sign.getDeclaringTypeName() + " 前置日志");
 	}
 
 	/**
@@ -72,6 +72,6 @@ public class CheckParamAspect {
 	 */
 	@After("pointCut()")
 	public void after(JoinPoint joinPoint) {
-		System.out.println("调用aspect 方法结束");
+		logger.info("调用aspect 方法结束");
 	}
 }

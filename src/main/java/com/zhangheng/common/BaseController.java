@@ -1,12 +1,16 @@
 package com.zhangheng.common;
 
 import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.zhangheng.annotation.CheckParam;
 import com.zhangheng.util.ResultUtil;
 
@@ -25,6 +29,12 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	private CommonService commonService;
 
 	/**
+	 * 统计接口的使用次数
+	 */
+	@Autowired
+    private CounterService counterService;
+	
+	/**
 	 * 根据ID查询
 	 * 
 	 * @param id
@@ -33,6 +43,7 @@ public class BaseController<Domain extends BaseEntity, CommonService extends Bas
 	@CheckParam
 	@RequestMapping("/findById/{id}")
 	public ResultInfo<Object> findById(@PathVariable("id") Id id) {
+		counterService.increment("findById.id.count");
 		return ResultUtil.success(ResultEnum.SUCCESS,commonService.findById(id));
 	}
 
