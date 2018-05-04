@@ -1,0 +1,74 @@
+# 服务器的端口和contextPath的配置
+server:
+ port: 10086
+ contextPath: /springboot
+
+# Actuator 监控访问端口 默认值跟上面的端口一样
+management:
+ port: 10087
+ context-path: /manage
+ 
+spring:
+ datasource:  # 数据库的配置 用的是阿里的druid连接池
+  url: jdbc:mysql://localhost:3306/mytest
+  username: root
+  password: 111111
+  driver-class-name: com.mysql.jdbc.Driver
+  type: com.alibaba.druid.pool.DruidDataSource
+  initialSize: 5
+  minIdle: 5
+  maxActive: 20
+  maxWait: 60000
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  validationQuery: SELECT 1 FROM DUAL
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  poolPreparedStatements: true
+  maxPoolPreparedStatementPerConnectionSize: 20
+  filters: stat,wall,log4j
+  connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+ devtools: # 热部署机制 需要依赖一个jar
+  restart:
+   enabled: true
+
+# MyBatis 的配置
+mybatis:
+ typeAliasesPackage: com.zhangheng.entity
+ mapperLocations: classpath:mapper/*.xml
+
+# 日志管理
+logging:
+ level:
+  com:
+   zhangheng:
+    dao: debug
+ file:
+  logs/spring-boot-logging.log
+
+# 权限验证
+security:
+ user:
+  name: iflytek2018
+  password: iflytek2018
+  
+# endpoints 介绍
+endpoints:
+ shutdown:
+  enabled: false  #true 强制下线
+ info: ##自定义info的id
+  id: myAppInfo
+
+
+info:
+ app:
+  name: springBootDemo
+  version: v0.0.1
+  author: hengzhang2@iflytek.com
+  
+author:
+ name: zhangheng
+ email: hengzhang2@iflytek.com
+ age: 18
+ neck: 永远18岁

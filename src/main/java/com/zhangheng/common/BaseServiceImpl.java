@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.zhangheng.util.AuthorBean;
 
 /**
  * 公用service实现层
@@ -18,8 +19,12 @@ public class BaseServiceImpl implements BaseService<BaseEntity> {
 	@Autowired
 	private BaseDao<BaseEntity> baseDao;
 
+	@Autowired
+	private AuthorBean authorBean;
+	
 	@Override
 	public BaseEntity findById(Number id) {
+		System.out.println(authorBean.toString());
 		return baseDao.findById(id);
 	}
 
