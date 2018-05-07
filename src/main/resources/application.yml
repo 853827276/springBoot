@@ -3,3 +3,9 @@
 spring:
  profiles:
   active: dev
+  
+  # 模板引擎为html 位置在templates下
+ mvc:
+  view:
+   prefix: classpath:/templates
+   suffix: .html
