@@ -32,7 +32,10 @@ spring:
  devtools: # 热部署机制 需要依赖一个jar
   restart:
    enabled: true
-
+ mail:
+  host: smtp.163.com
+  username: zhsj201314@163.com
+  password: zhsj201314
 # MyBatis 的配置
 mybatis:
  typeAliasesPackage: com.zhangheng.entity
